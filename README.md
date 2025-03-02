@@ -1,5 +1,7 @@
 # HW 7: logistic regression
 
+[![RegressionTests](https://github.com/isaiahah/HW7-Regression/actions/workflows/test.yaml/badge.svg)](https://github.com/isaiahah/HW7-Regression/actions/workflows/test.yaml)
+
 In this assignment, you'll implement a classifier using logistic regression, optimized with gradient descent.
 
 ## Overview

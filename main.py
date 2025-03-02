@@ -9,6 +9,7 @@ unless you want to.
 # Imports
 from regression import (logreg, utils)
 from sklearn.preprocessing import StandardScaler
+import numpy as np
 
 # Define main function
 def main():
@@ -35,9 +36,11 @@ def main():
 
     # For testing purposes, once you've added your code.
     # CAUTION: hyperparameters have not been optimized.
-    # log_model = logreg.LogisticRegressor(num_feats=6, learning_rate=0.00001, tol=0.01, max_iter=10, batch_size=10)
-    # log_model.train_model(X_train, y_train, X_val, y_val)
-    # log_model.plot_loss_history()
+    log_model = logreg.LogisticRegressor(num_feats=6, learning_rate=0.012, tol=0.01, max_iter=10, batch_size=10)
+    log_model.train_model(X_train, y_train, X_val, y_val)
+    log_model.plot_loss_history()
+    X_val_input = np.hstack([X_val, np.ones((X_val.shape[0], 1))])
+    print(f"Accuracy: {np.mean(np.round(log_model.make_prediction(X_val_input)) == y_val)}")
 
 # Run main function if run as script
 if __name__ == "__main__":
